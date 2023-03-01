@@ -20,7 +20,7 @@ import compress from "astro-compress";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://chrisnowicki.io',
+    site: 'https://astro.chrisnowicki.io',
     integrations: [
         tailwind(),
         sitemap(),
