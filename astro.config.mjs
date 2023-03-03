@@ -25,7 +25,7 @@ export default defineConfig({
         tailwind(),
         sitemap(),
         react(),
-        prefetch(),
+        prefetch({throttle: 4}),
         compress(),
     ],
     output: 'server',
