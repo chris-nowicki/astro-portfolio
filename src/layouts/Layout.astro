@@ -1,6 +1,5 @@
 ---
 import Nav from '../components/NavBar/Nav.astro'
-import Footer from '../components/Footer.astro'
 import '../styles/global.css'
 
 // types
@@ -11,7 +10,7 @@ export interface Props {
 }
 
 // sanity.io client & query
-import { client, seo as query } from '../lib/sanity'
+import { client, seo as query } from '../lib/sanityClient'
 import { urlFor } from '../util/imageBuilder'
 
 // fetch seo from sanity.io
@@ -96,7 +95,6 @@ const { title = 'Chris Nowicki' } = Astro.props
                     <slot id="box" class="w-full" />
                 </div>
             </div>
-            <Footer />
         </div>
     </body>
 </html>

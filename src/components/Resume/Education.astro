@@ -3,7 +3,7 @@
 import { Education } from '../../ts/types'
 
 // sanity client & query
-import { client, education as query } from '../../lib/sanity'
+import { client, education as query } from '../../lib/sanityClient'
 
 // fetch featured projects from sanity.io
 const response = await client.fetch(query)

@@ -9,7 +9,7 @@ import { Projects } from '../ts/types'
 import { GitBranchOutline, OpenOutline } from '../components/icons'
 
 // sanity client & query
-import { client, projects as query } from '../lib/sanity'
+import { client, projects as query } from '../lib/sanityClient'
 
 // fetch featured projects from sanity.io
 const projects: Projects[] = await client.fetch(query)

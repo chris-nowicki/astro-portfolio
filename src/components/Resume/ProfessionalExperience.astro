@@ -1,13 +1,9 @@
 ---
-// types
-import { Experience } from '../../ts/types'
+export interface Props {
+    experience: any
+}
 
-// sanity client & query
-import { client, professionalExperience as query } from '../../lib/sanity'
-
-// fetch featured projects from sanity.io
-const response = await client.fetch(query)
-const experience: Experience = response[0].professionalExperience[0]
+const { experience } = Astro.props
 ---
 
 <div class="mb-8 flex w-full flex-col gap-4">

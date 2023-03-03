@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 // sanity client and query
-import { client, tech as query } from '../../lib/sanity'
+import { client, tech as query } from '../../lib/sanityClient'
 
 // Components
 import Button from './Button'

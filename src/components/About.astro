@@ -3,14 +3,10 @@
 import { Linkedin, GitHub, ArrowIcon } from './icons'
 
 // sanity.io client & query
-import { client, picture as query } from '../lib/sanity'
-import { urlFor } from '../util/imageBuilder'
+import { getPicture } from '../lib/sanityQuery'
 
 // fetch featured projects from sanity.io
-const response = await client.fetch(query)
-const image: string = response[0].chrisnowicki
-
-const chrisnowicki = urlFor(image).url()
+const chrisnowicki = await getPicture()
 ---
 
 <!-- about me section -->

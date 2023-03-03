@@ -6,7 +6,7 @@ import TechnicalProjectCard from './TechnicalProjectCard.astro'
 import { TechnicalProjects } from '../../ts/types'
 
 // sanity client & query
-import { client, technicalProjects as query } from '../../lib/sanity'
+import { client, technicalProjects as query } from '../../lib/sanityClient'
 
 // fetch featured projects from sanity.io
 const response = await client.fetch(query)

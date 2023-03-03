@@ -9,7 +9,7 @@ import { getLinks, Links } from '../../ts/types'
 import { ArrowIcon, PDF } from '../icons'
 
 // sanity.io client & query
-import { client, links as query } from '../../lib/sanity'
+import { client, links as query } from '../../lib/sanityClient'
 
 // fetch navigation links from sanity.io
 const response: getLinks = await client.fetch(query)
@@ -76,26 +76,22 @@ const currentPath = pathname.slice(1)
 
         <div class="flex flex-row items-center justify-center gap-1">
             <!-- resume link -->
-            {
-                showResume && (
-                    <div class="flex flex-row">
-                        <a
-                            href="/resume"
-                            rel="prefetch"
-                            class={`dark:text-textDark flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100  dark:border-neutral-900/50 hover:dark:bg-neutral-900/20
+
+            <div class="flex flex-row">
+                <a
+                    href="/resume"
+                    rel="prefetch"
+                    class={`dark:text-textDark flex w-full items-center justify-between rounded-lg border border-neutral-200 px-4 py-2 text-lg hover:bg-neutral-100  dark:border-neutral-900/50 hover:dark:bg-neutral-900/20
                                     ${currentPath === 'resume' ? 'hidden' : ''}
                                 `}
-                        >
-                            <div class="mr-2 flex items-center gap-2 md:mr-6">
-                                <PDF size={24} classProps="hidden md:block" />
-                                resumé
-                            </div>
-                            <ArrowIcon size={12} />
-                        </a>
+                >
+                    <div class="mr-2 flex items-center gap-2 md:mr-6">
+                        <PDF size={24} classProps="hidden md:block" />
+                        resumé
                     </div>
-                )
-            }
-
+                    <ArrowIcon size={12} />
+                </a>
+            </div>
             <ThemeToggle />
         </div>
     </nav>

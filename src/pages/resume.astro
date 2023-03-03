@@ -8,9 +8,6 @@ import ProfessionalExperience from '../components/Resume/ProfessionalExperience.
 import Education from '../components/Resume/Education.astro'
 import TechnicalProjects from '../components/Resume/TechnicalProjects.astro'
 
-// types
-import { Resume } from '../ts/types'
-
 // icons
 import {
     Linkedin,
@@ -22,18 +19,11 @@ import {
 } from '../components/icons'
 
 // sanity.io client & queries
-import { client, resume as query1, picture as query2 } from '../lib/sanity'
-import { urlFor } from '../util/imageBuilder'
+import { getPicture, getResume } from '../lib/sanityQuery'
 
 // fetch resume from sanity.io
-const response = await client.fetch(query1)
-const resume: Resume = response[0]
-
-// fetch chrisnowicki picture
-const getPicture = await client.fetch(query2)
-const image: string = getPicture[0].chrisnowicki
-
-const chrisnowicki = urlFor(image).url()
+const chrisnowicki = await getPicture()
+const resume = await getResume()
 ---
 
 <Layout title="Resumé | Chris Nowicki">
@@ -121,7 +111,7 @@ const chrisnowicki = urlFor(image).url()
                 <!-- technical projects -->
                 <TechnicalProjects />
                 {/* Professional Experience */}
-                <ProfessionalExperience />
+                <ProfessionalExperience  experience={resume.professionalExperience[0]}/>
 
                 {/* Education */}
                 <Education />

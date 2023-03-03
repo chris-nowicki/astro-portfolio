@@ -1,4 +1,4 @@
-import {createClient} from '@sanity/client'
+import { createClient } from '@sanity/client'
 import groq from 'groq'
 
 export const client = createClient({
@@ -9,6 +9,11 @@ export const client = createClient({
     useCdn: false, // `false` if you want to ensure fresh data
     ignoreBrowserTokenWarning: true,
 })
+
+export async function fetchSanity(query: string) {
+    const data = await client.fetch(query)
+    return data
+}
 
 // Sanity CMS Queries
 export const siteSettings: string = groq`*[_type == "settings"] {
