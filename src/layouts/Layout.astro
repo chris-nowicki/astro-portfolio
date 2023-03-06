@@ -1,5 +1,6 @@
 ---
 import Nav from '../components/NavBar/Nav.astro'
+import NavBar from '../components/NavBar/NavBar'
 import '../styles/global.css'
 
 // types
@@ -90,7 +91,7 @@ const { title = 'Chris Nowicki' } = Astro.props
     <body class="bg-gray-50 dark:bg-bgDark dark:text-textDark">
         <div class="mx-auto flex h-screen flex-col justify-between">
             <div class="w-full">
-                <Nav />
+                <Nav/>
                 <div>
                     <slot id="box" class="w-full" />
                 </div>
