@@ -7,14 +7,22 @@ import { getLinks, Links } from '../../ts/types'
 
 // icons
 import { ArrowIcon, PDF } from '../icons'
+import { homedir } from 'os'
 
-// sanity.io client & query
-import { client, links as query } from '../../lib/sanityClient'
-
-// fetch navigation links from sanity.io
-const response: getLinks = await client.fetch(query)
-const links: Links[] = response[0].links
-const showResume = response[0].showResume
+const links = [
+    {
+        reference: '/',
+        title: 'home',
+    },
+    {
+        reference: '/projects',
+        title: 'projects',
+    },
+    {
+        reference: '/contact',
+        title: 'contact',
+    },
+]
 
 // remove resume nav link based on page
 const pathname = new URL(Astro.request.url).pathname
@@ -28,17 +36,14 @@ const currentPath = pathname.slice(1)
         <!-- menu -->
         <div class="items-center sm:hidden md:flex">
             {
-                links.map(
-                    (link) =>
-                        link.show && (
-                            <a
-                                href={link.reference}
-                                class={`dark:text-textDark dark:hover:text-purpleDark mr-4 text-xl hover:text-purple-600 `}
-                            >
-                                {link.title}
-                            </a>
-                        )
-                )
+                links.map((link) => (
+                    <a
+                        href={link.reference}
+                        class={`dark:text-textDark dark:hover:text-purpleDark mr-4 text-xl hover:text-purple-600 `}
+                    >
+                        {link.title}
+                    </a>
+                ))
             }
         </div>
 
@@ -59,18 +64,15 @@ const currentPath = pathname.slice(1)
                 class="absolute left-6 right-6 z-10 -mx-6 mt-10 hidden h-1/4 flex-col items-center justify-center space-y-2 self-end bg-bgDark py-4 text-textDark opacity-95 drop-shadow-md dark:bg-gray-900 sm:w-full sm:self-center"
             >
                 {
-                    links.map(
-                        (link) =>
-                            link.show && (
-                                <a
-                                    href={link.reference}
-                                    class="text-textDark hover:text-purpleDark text-3xl"
-                                    rel="prefetch"
-                                    >
-                                    {link.title}
-                                </a>
-                            )
-                    )
+                    links.map((link) => (
+                        <a
+                            href={link.reference}
+                            class="text-textDark hover:text-purpleDark text-3xl"
+                            rel="prefetch"
+                        >
+                            {link.title}
+                        </a>
+                    ))
                 }
             </div>
         </div>
