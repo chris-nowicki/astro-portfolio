@@ -1,0 +1,14 @@
+---
+import SectionHeading from '../SectionHeading.astro'
+import ProjectCard from './ProjectsCard.astro'
+import { getFeaturedProjects } from '../../sanity/sanity-queries'
+
+const projects: any = await getFeaturedProjects()
+---
+
+<section class="w-full">
+  <SectionHeading heading="Featured Projects" />
+  <div class="flex flex-col gap-4">
+    {projects.map((project: any) => <ProjectCard project={project} />)}
+  </div>
+</section>

@@ -1,19 +1,20 @@
 ---
-// layout
 import Layout from '../layouts/Layout.astro'
-
-// components
-import About from '../components/About.astro'
+import Intro from '../components/Intro/Intro.astro'
+import TechStack from '../components/TechStack.astro'
+import SectionDivider from '../components/SectionDivider.astro'
+import FeaturedProjects from '../components/Projects/FeaturedProjects.astro'
+import Skills from '../components/Skills.astro'
 ---
 
-<Layout>
-    <main class="flex flex-col items-center px-10 lg:px-0">
-        <div class="flex max-w-3xl flex-col">
-            <div
-                class="mt-0 flex flex-row flex-wrap-reverse justify-center md:mt-10 md:flex-nowrap"
-            >
-                <About />
-            </div>
-        </div>
-    </main>
+<Layout title="Chris Nowicki">
+  <div class="flex w-full flex-col items-center px-4 md:px-0">
+    <Intro />
+    <TechStack />
+    <SectionDivider />
+    <FeaturedProjects />
+    <SectionDivider />
+    <Skills />
+    <SectionDivider />
+  </div>
 </Layout>

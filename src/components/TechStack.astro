@@ -1,0 +1,38 @@
+---
+import Icon from 'astro-icon'
+
+type TechStackType = {
+  icon: string
+  url: string
+  style?: string
+}
+
+const techStack: TechStackType[] = [
+  { icon: 'nextjs', url: 'https://nextjs.org/', style: 'w-14' },
+  { icon: 'react', url: 'https://nextjs.org/', style: 'w-10' },
+  { icon: 'astro', url: 'https://nextjs.org/', style: 'w-10' },
+  { icon: 'typescript', url: 'https://nextjs.org/', style: 'w-10' },
+  { icon: 'logos:tailwindcss-icon', url: 'https://nextjs.org/', style: 'w-10' },
+  { icon: 'sanity', url: 'https://nextjs.org/', style: 'w-[124px]' },
+  { icon: 'mysql', url: 'https://nextjs.org/', style: 'w-14' },
+  { icon: 'mongodb', url: 'https://nextjs.org/', style: 'w-[121.37px]' },
+  { icon: 'vercel', url: 'https://nextjs.org/', style: 'w-10' },
+]
+---
+
+<section
+  class="mt-8 flex w-full flex-wrap items-center justify-center gap-6 rounded-lg py-4 shadow-lg dark:bg-foreground dark:py-2 md:mt-12 md:justify-between md:gap-0 md:px-6 md:dark:rounded-full"
+>
+  {
+    techStack.map((tech) => (
+      <a
+        href={tech.url}
+        class="duration-100 ease-in-out hover:scale-105"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <Icon name={tech.icon} class={tech.style} />
+      </a>
+    ))
+  }
+</section>

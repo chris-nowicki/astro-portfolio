@@ -1,0 +1,59 @@
+---
+import { getIntro, getResume } from '../../sanity/sanity-queries'
+import { sanityPortableText } from '../../lib/portable-text'
+import ContactButton from './ContactButton.astro'
+import Icon from 'astro-icon'
+import { socialLinks, contactInfo } from '../../lib/data'
+import { Image } from 'astro:assets'
+
+const pageData = await getIntro()
+const resumeURL = await getResume()
+---
+
+<section class="flex flex-col md:flex-nowrap">
+  <div
+    class="mt-10 flex flex-wrap-reverse justify-center md:flex-nowrap md:justify-start"
+  >
+    <!-- intro text from sanity -->
+    <div
+      class="mr-0 flex w-full flex-col items-center text-left text-xl md:mr-6 md:items-start"
+    >
+      <Fragment set:html={sanityPortableText(pageData.content)} />
+      {/* contact and download buttons */}
+      <div class="mt-6 flex items-center gap-2">
+        <ContactButton URL="/#contact" contactInfo={contactInfo.Contact} />
+        <ContactButton URL={resumeURL} contactInfo={contactInfo.DownloadCV} />
+      </div>
+    </div>
+
+    {/* profile image and social media links */}
+    <div
+      class="mb-4 flex w-[200px] flex-col items-center gap-4 md:mb-0 md:mt-0 md:w-[400px]"
+    >
+      <div class="rounded-xl bg-white p-2 shadow-lg">
+        <Image
+          class="rounded-xl"
+          width={400}
+          height={400}
+          src={pageData.profilePicture}
+          alt="chris nowicki"
+          loading={'eager'}
+        />
+      </div>
+
+      <!-- social media links -->
+      <div class="flex items-center gap-2">
+        {
+          socialLinks.map((link) => (
+            <a href={link.URL} target="_blank">
+              <Icon
+                name={link.icon}
+                class="w-7 hover:scale-110 hover:text-purple-light  hover:duration-75 hover:ease-in-out dark:hover:text-purple-dark"
+              />
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

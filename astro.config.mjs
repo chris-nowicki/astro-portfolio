@@ -1,35 +1,9 @@
-import { defineConfig } from 'astro/config';
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
 
-// https://astro.build/config
-import tailwind from '@astrojs/tailwind';
-
-// https://astro.build/config
-import vercel from '@astrojs/vercel/serverless';
-
-// https://astro.build/config
-import sitemap from '@astrojs/sitemap';
-
-// https://astro.build/config
-import react from '@astrojs/react';
-
-// https://astro.build/config
-import prefetch from '@astrojs/prefetch';
-
-// https://astro.build/config
-import compress from "astro-compress";
+import react from "@astrojs/react";
 
 // https://astro.build/config
 export default defineConfig({
-    site: 'https://astro.chrisnowicki.io',
-    integrations: [
-        tailwind(),
-        sitemap(),
-        react(),
-        prefetch({throttle: 4}),
-        compress(),
-    ],
-    output: 'server',
-    adapter: vercel({
-        analytics: true,
-    }),
-})
+  integrations: [tailwind(), react()]
+});

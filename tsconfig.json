@@ -1,24 +1,7 @@
 {
-    "$schema": "https://json.schemastore.org/tsconfig",
-    "compilerOptions": {
-        "target": "ESNext",
-        "module": "ESNext",
-        "moduleResolution": "node",
-        "resolveJsonModule": true,
-        "isolatedModules": true,
-        "noEmit": true,
-        "forceConsistentCasingInFileNames": true,
-        "esModuleInterop": true,
-        "jsx": "react-jsx",
-        "jsxImportSource": "react"
-    },
-    "extends": "astro/tsconfigs/base",
-    "include": [
-        "**/*.ts",
-        "**/*.tsx",
-        "src/lib/reportWebVitals.js",
-        "src/lib/vitals.js",
-        "src/lib/sanityClient.ts"
-    ],
-    "exclude": ["node_modules"]
+  "extends": "astro/tsconfigs/strict",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
+  }
 }
