@@ -4,18 +4,30 @@ import vercel from '@astrojs/vercel/serverless'
 import react from '@astrojs/react'
 import sanity from '@sanity/astro'
 
+// load environment variables from .env file
+import { loadEnv } from 'vite'
+const { PUBLIC_SANITY_PROJECT_ID, PUBLIC_SANITY_DATASET } = loadEnv(
+  import.meta.env.MODE,
+  process.cwd(),
+  ''
+)
+
+const projectId = PUBLIC_SANITY_PROJECT_ID
+const dataset = PUBLIC_SANITY_DATASET
+
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
   adapters: vercel(),
   integrations: [
-    tailwind(),
     sanity({
-      projectId: '4zd5l3k5',
-      dataset: 'production',
-      useCdn: false,
+      projectId,
+      dataset,
       studioBasePath: '/admin',
+      useCdn: false,
+      apiVersion: '2023-03-20',
     }),
     react(),
+    tailwind(),
   ],
 })
