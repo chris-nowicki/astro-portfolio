@@ -16,7 +16,7 @@ import sanity from '@sanity/astro';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'hybrid',
+  output: 'server',
   adapter: vercel(),
   integrations: [sanity({
     projectId,
