@@ -6,6 +6,8 @@ import Icon from 'astro-icon'
 import { socialLinks, contactInfo } from '../../lib/data'
 import { Image } from 'astro:assets'
 
+export const prerender = false
+
 const pageData = await getIntro()
 const resumeURL = await getResume()
 ---
