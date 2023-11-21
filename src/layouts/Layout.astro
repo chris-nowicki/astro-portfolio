@@ -3,12 +3,6 @@ import NavBar from '../components/Nav/NavBar'
 import Footer from '../components/Footer/Footer'
 import '../styles/global.css'
 
-import { getResume } from '../sanity/sanity-queries'
-import { getMetrics } from '../lib/metrics'
-const resume = await getResume()
-const metrics = await getMetrics()
-
-
 const { title } = Astro.props
 ---
 
