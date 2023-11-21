@@ -2,6 +2,8 @@
 import SectionHeading from './SectionHeading.astro'
 import { getSkills } from '../sanity/sanity-queries'
 
+export const prefetch = true
+
 const skills = await getSkills()
 ---
 

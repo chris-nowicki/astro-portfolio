@@ -3,6 +3,8 @@ import clsx from 'clsx'
 import { navItems } from '../../lib/data'
 import { motion } from 'framer-motion'
 
+export const prefetch = true
+
 export default function NavBar() {
   const [showMobileMenu, setShowMobileMenu] = useState(false)
   const [activeSection, setActiveSection] = useState('Home')
