@@ -33,6 +33,8 @@ export const socialLinks = [
   },
 ] as const
 
+export const prerender = false
+
 const resumeURL = await getResume()
 const metrics = await getMetrics()
 
