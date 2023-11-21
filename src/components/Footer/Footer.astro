@@ -1,0 +1,84 @@
+---
+import Icon from 'astro-icon'
+import Metrics from './Metrics.astro'
+import { getResume } from '../../sanity/sanity-queries'
+
+const socialLinks = [
+  {
+    name: 'Linkedin',
+    URL: 'https://www.linkedin.com/in/chris-nowicki/',
+    icon: 'linkedin',
+  },
+  {
+    name: 'GitHub',
+    URL: 'https://github.com/chris-nowicki',
+    icon: 'github',
+  },
+  {
+    name: 'Twitter',
+    URL: 'https://twitter.com/iamwix',
+    icon: 'twitter',
+  },
+  {
+    name: 'DEV',
+    URL: 'https://dev.to/chrisnowicki',
+    icon: 'devto',
+  },
+] as const
+
+const resumeURL = await getResume()
+
+export const prefetch = true
+
+---
+
+<footer
+  class="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:px-0 md:text-center"
+>
+  {/* resume & social media links */}
+  {/* links */}
+  <div
+    class="mb-10 flex w-full flex-col gap-2 rounded-lg border p-4 shadow-lg dark:border-gray-300/20 dark:bg-gray-300/10 md:w-3/4 md:flex-row"
+  >
+    <div class="flex w-full flex-col gap-1 md:w-1/2 md:gap-2">
+      {/* resume */}
+      <a
+        href={resumeURL}
+        class="group flex w-full items-center justify-center gap-2 rounded-lg border p-2 hover:border-purple-light hover:text-purple-light hover:shadow dark:border-gray-300/20 dark:hover:border-purple-dark dark:hover:text-purple-dark"
+        target="_blank"
+      >
+        <Icon name="pdf" class='w-7' />
+         Download CV
+        <Icon
+          name='bi:download'
+          class="transition-all group-hover:animate-bounce w-5"
+        />
+      </a>
+
+      {/* social media links */}
+      <div class="flex items-center justify-between gap-1 md:gap-2">
+        {
+          socialLinks.map((link) => (
+            <a
+              href={link.URL}
+              class="flex w-full items-center justify-center rounded-lg border p-2 hover:border-purple-light hover:text-purple-light hover:shadow dark:border-gray-300/20 dark:hover:border-purple-dark dark:hover:text-purple-dark"
+              target="_blank"
+            >
+              <Icon name={link.icon} class='w-7'>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+
+    {/* metrics */}
+    <Metrics socialLinks={socialLinks} />
+  </div>
+
+  {/* about this website information */}
+  <p class="text-xs">
+    <span class="font-semibold">Built with:</span> Astro, React, TypeScript,
+    Tailwind CSS, Framer Motion, React Email & Resend, Sanity CMS, PlanetScale
+    MySQL, Vercel hosting.
+  </p>
+</footer>
