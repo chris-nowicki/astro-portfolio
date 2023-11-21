@@ -7,11 +7,8 @@ import {
   DEVTO,
 } from '../../assets/ReactIcons'
 import Metrics from './Metrics'
-
-type FooterProps = {
-  resumeURL: string
-  metrics: any
-}
+import { getResume } from '../../sanity/sanity-queries'
+import { getMetrics } from '../../lib/metrics'
 
 export const socialLinks = [
   {
@@ -36,8 +33,10 @@ export const socialLinks = [
   },
 ] as const
 
+const resumeURL = await getResume()
+const metrics = await getMetrics()
 
-export default function Footer({ resumeURL, metrics }: FooterProps) {
+export default function Footer() {
   return (
     <footer className="mb-10 flex w-full flex-col items-center justify-center text-left text-gray-500 md:px-0 md:text-center">
       {/* resume & social media links */}

@@ -9,15 +9,16 @@ export type SeoType = {
   image: string
 }
 
-export type ProjectType = {
-  projectName: string
-  dateCreated: string
+export type ProjectsType = {
+  name: string
+  image: string
+  excerpt: string
   liveSiteURL: string
   gitHubURL: string
   tags: {
     name: string
   }[]
-}
+}[]
 
 export type SkillsType = {
   name: string

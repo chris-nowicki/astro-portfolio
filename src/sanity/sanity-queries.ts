@@ -1,6 +1,6 @@
 import { sanityFetch } from "./sanity-utils";
 import groq from "groq";
-import { type SeoType, type ProjectType, type SkillsType } from "../types/types";
+import { type SeoType, type ProjectsType, type SkillsType } from "../types/types";
 
 // GROQ Queries
 export async function getSEO(): Promise<SeoType> {
@@ -39,9 +39,9 @@ export async function getResume(): Promise<string> {
   return res
 }
 
-export async function getFeaturedProjects(): Promise<ProjectType> {
+export async function getFeaturedProjects(): Promise<ProjectsType> {
   const query = groq`*[_type == 'featuredProjects'] {
-    "featuredProjects": featuredProjects[]->{
+    featuredProjects[]->{
       _id,  
       "name": projectName,
       excerpt,
@@ -54,7 +54,7 @@ export async function getFeaturedProjects(): Promise<ProjectType> {
     },
   }[0].featuredProjects`
 
-  const res: ProjectType = await sanityFetch(query)
+  const res: ProjectsType = await sanityFetch(query)
   return res
 }
 

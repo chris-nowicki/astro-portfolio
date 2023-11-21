@@ -1,0 +1,1 @@
+import{aI as e}from"./studio-component.a59a0e2e.js";import"./jsx-runtime.ae4450d5.js";import"./index.1b03fe98.js";import"./client.2d0a6c16.js";import"./motion.6a136c6c.js";import"./groq.esm.fbf28a16.js";export{e as StudioComponent};

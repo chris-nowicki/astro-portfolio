@@ -3,7 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Intro from '../components/Intro/Intro.astro'
 import TechStack from '../components/TechStack.astro'
 import SectionDivider from '../components/SectionDivider.astro'
-import FeaturedProjects from '../components/Projects/FeaturedProjects.astro'
+import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects'
 import Skills from '../components/Skills.astro'
 ---
 
@@ -12,7 +12,7 @@ import Skills from '../components/Skills.astro'
     <Intro />
     <TechStack />
     <SectionDivider />
-    <FeaturedProjects />
+    <FeaturedProjects client:load />
     <SectionDivider />
     <Skills />
     <SectionDivider />

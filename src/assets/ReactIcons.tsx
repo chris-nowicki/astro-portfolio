@@ -137,3 +137,57 @@ export function TrendingUpArrowIcon({ size = 24, classProps }: Icon) {
     </svg>
   )
 }
+
+export function OpenOutline({ size }: Icon) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 512 512"
+    >
+      <path
+        fill="none"
+        stroke="currentColor"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth="32"
+        d="M384 224v184a40 40 0 0 1-40 40H104a40 40 0 0 1-40-40V168a40 40 0 0 1 40-40h167.48M336 64h112v112M224 288L440 72"
+      />
+    </svg>
+  )
+}
+
+export function CHEVRON_LEFT({ size = 32, classProps }: Icon) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      className={classProps}
+    >
+      <path
+        fill="currentColor"
+        d="M10 16L20 6l1.4 1.4l-8.6 8.6l8.6 8.6L20 26z"
+      />
+    </svg>
+  )
+}
+
+export function CHEVRON_RIGHT({ size = 32, classProps }: Icon) {
+  return (
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width={size}
+      height={size}
+      viewBox="0 0 32 32"
+      className={classProps}
+    >
+      <path
+        fill="currentColor"
+        d="M22 16L12 26l-1.4-1.4l8.6-8.6l-8.6-8.6L12 6z"
+      />
+    </svg>
+  )
+}
