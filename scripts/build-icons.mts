@@ -163,7 +163,7 @@ async function generateSvgSprite({
 
 async function writeIfChanged(filepath: string, newContent: string) {
   const currentContent = fsExtra.readFile(filepath, 'utf-8').catch(() => '')
-  if (currentContent === newContent) {
+  if (await currentContent === newContent) {
     return false
   }
   await fsExtra.writeFile(filepath, newContent, 'utf-8')
