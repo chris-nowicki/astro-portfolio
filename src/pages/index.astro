@@ -1,20 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro'
-import Intro from '../components/Intro/Intro.astro'
-import TechStack from '../components/TechStack.astro'
-import SectionDivider from '../components/SectionDivider.astro'
-import FeaturedProjects from '../components/FeaturedProjects/FeaturedProjects'
-import Skills from '../components/Skills.astro'
 ---
 
+<script is:inline>
+  const getThemePreference = () => {
+    if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+      return localStorage.getItem('theme')
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches
+      ? 'dark'
+      : 'light'
+  }
+  const isDark = getThemePreference() === 'dark'
+  document.documentElement.classList[isDark ? 'add' : 'remove']('dark')
+
+  if (typeof localStorage !== 'undefined') {
+    const observer = new MutationObserver(() => {
+      const isDark = document.documentElement.classList.contains('dark')
+      localStorage.setItem('theme', isDark ? 'dark' : 'light')
+    })
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    })
+  }
+</script>
+
 <Layout title="Chris Nowicki">
-  <div class="flex w-full flex-col items-center px-4 md:px-0">
-    <Intro />
-    <TechStack />
-    <SectionDivider />
-    <FeaturedProjects client:load />
-    <SectionDivider />
-    <Skills />
-    <SectionDivider/>
-  </div>
+  <div class="flex w-full flex-col items-center px-4 md:px-0"></div>
 </Layout>

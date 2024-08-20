@@ -1,15 +1,24 @@
+// navbar items
 export const navItems = [
   {
     name: 'Home',
-    hash: '/',
+    href: '/',
+  },
+  {
+    name: 'Projects',
+    href: '/#projects',
+  },
+  {
+    name: 'Speaking',
+    href: '/#speaking',
   },
   {
     name: 'Blog',
-    hash: '/blog',
+    href: '/blog',
   },
   {
-    name: 'Contact',
-    hash: '/contact',
+    name: 'Uses',
+    href: '/uses',
   },
 ] as const
 
@@ -35,7 +44,6 @@ export const socialLinks = [
     icon: 'devto',
   },
 ] as const
-
 
 export const contactInfo = {
   Contact: {

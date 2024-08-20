@@ -1,6 +1,5 @@
 ---
-import NavBar from '../components/Nav/NavBar'
-import Footer from '../components/Footer/Footer.astro'
+import NavBar from '../components/NavBar/NavBar'
 import '../styles/global.css'
 
 const { title } = Astro.props
@@ -20,14 +19,13 @@ const { title } = Astro.props
     />
     <title>{title}</title>
   </head>
-  <body class="bg-gray-50 dark:bg-background-light dark:text-foreground">
-    <div class="flex flex-col items-center">
+  <body class="dark:bg-background-light bg-gray-50 dark:text-foreground">
+    <div class="flex flex-col justify-center">
       <div class="w-full max-w-3xl">
         <NavBar client:load />
         <main class="z-10">
           <slot />
         </main>
-        <Footer />
       </div>
     </div>
   </body>
